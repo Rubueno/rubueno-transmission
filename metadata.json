@@ -2,7 +2,7 @@
   "name": "rubueno-transmission",
   "version": "1.0.0",
   "author": "rubueno",
-  "summary": "A Puppet implementation of Radarr",
+  "summary": "A Puppet implementation of Transmission",
   "license": "DBAD",
   "source": "https://github.com/Rubueno/rubueno-transmission",
   "project_page": "https://github.com/Rubueno/rubueno-transmission",
