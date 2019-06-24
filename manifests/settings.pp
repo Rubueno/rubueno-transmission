@@ -4,6 +4,7 @@ class transmission::settings (
   $group                          = $transmission::group,
   $user                           = $transmission::user,
   $configfile                     = $transmission::configfile,
+  $manage_config                  = $transmission::manage_config,
   $service_enable                 = $transmission::service_enable,
   $service_name                   = $transmission::service_name,
   $alt_speed_down                 = $transmission::alt_speed_down,
@@ -81,15 +82,17 @@ class transmission::settings (
     }
   }
 
-  transition { "stop ${service_name} service":
-    resource   => Service[$service_name],
-    attributes => { ensure => stopped },
-    prior_to   => File[$configfile],
-  }
-  
-  file { $configfile:
-    ensure  => file,
-    content => template('transmission/settings.json.erb'),
-    notify  => Service[$service_name],
+  if $manage_config {
+    transition { "stop ${service_name} service":
+      resource   => Service[$service_name],
+      attributes => { ensure => stopped },
+      prior_to   => File[$configfile],
+    }
+
+    file { $configfile:
+      ensure  => file,
+      content => template('transmission/settings.json.erb'),
+      notify  => Service[$service_name],
+    }
   }
 }

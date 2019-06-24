@@ -6,6 +6,7 @@ class transmission (
   $group                          = $transmission::params::user,
   $user                           = $transmission::params::user,
   $configfile                     = $transmission::params::configfile,
+  $manage_config                  = $transmission::params::manage_config,
   $service_enable                 = $transmission::params::service_enable,
   $service_name                   = $transmission::params::service_name,
   $alt_speed_down                 = $transmission::params::alt_speed_down,

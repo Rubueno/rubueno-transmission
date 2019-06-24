@@ -3,6 +3,7 @@ class transmission::params {
   $packages                       = ['transmission-cli', 'transmission-common', 'transmission-daemon'] 
   $user                           = 'transmission'
   $configfile                     = '/var/lib/transmission/.config/transmission-daemon/settings.json'
+  $manage_config                  = true
   $service_enable                 = true
   $service_name                   = 'transmission-daemon'
   $alt_speed_down                 = 50
